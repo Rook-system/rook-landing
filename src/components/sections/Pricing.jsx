@@ -23,7 +23,7 @@ const Pricing = () => {
     },
     {
       name: 'Basic',
-      price: 'R$ 99',
+      price: 'R$ 179,90',
       period: '/mês',
       description: 'Para pequenos restaurantes que querem resultados reais',
       icon: Sparkles,
@@ -43,7 +43,7 @@ const Pricing = () => {
     },
     {
       name: 'Business',
-      price: 'R$ 299',
+      price: 'R$ 379,90',
       period: '/mês',
       description: 'Para restaurantes com ERP que querem automação total',
       icon: Crown,
