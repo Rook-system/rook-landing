@@ -1,4 +1,4 @@
-import { Check, Sparkles, Zap, Crown } from 'lucide-react'
+import { Check, Zap, Sparkles, Crown } from 'lucide-react'
 import Container from '../ui/Container'
 import Button from '../ui/Button'
 
@@ -10,8 +10,6 @@ const Pricing = () => {
       period: 'para sempre',
       description: 'Ideal para conhecer o Rook e começar a controlar seu CMV',
       icon: Zap,
-      color: 'info',
-      gradient: 'gradient-info',
       features: [
         'Calculadora de CMV básica',
         'Histórico de 30 dias',
@@ -29,8 +27,7 @@ const Pricing = () => {
       period: '/mês',
       description: 'Para pequenos restaurantes que querem resultados reais',
       icon: Sparkles,
-      color: 'rook-brown',
-      gradient: 'gradient-rook',
+      badge: 'MAIS POPULAR',
       features: [
         'Tudo do Freemium',
         'Histórico completo ilimitado',
@@ -50,8 +47,6 @@ const Pricing = () => {
       period: '/mês',
       description: 'Para restaurantes com ERP que querem automação total',
       icon: Crown,
-      color: 'rook-pingado',
-      gradient: 'gradient-rook-dark',
       badge: 'RECOMENDADO',
       features: [
         'Tudo do Basic',
@@ -70,25 +65,28 @@ const Pricing = () => {
   ]
   
   return (
-    <section id="precos" className="py-20 bg-white">
-      <Container>
+    <section id="precos" className="py-20 bg-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-hexagon-pattern opacity-5"></div>
+      
+      <Container className="relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-          <div className="inline-flex items-center space-x-2 bg-rook-brown-100 px-4 py-2 rounded-full mb-6">
-            <Crown className="w-5 h-5 text-rook-brown" />
-            <span className="text-sm font-semibold text-rook-brown">
+          <div className="inline-flex items-center space-x-2 bg-ocre/10 px-4 py-2 rounded-full mb-6 border border-ocre/20">
+            <Crown className="w-5 h-5 text-ocre-dark" />
+            <span className="text-sm font-light text-ocre-dark uppercase tracking-wider">
               Planos e Preços
             </span>
           </div>
           
-          <h2 className="text-4xl lg:text-5xl font-bold text-rook-brown mb-6">
+          <h2 className="text-display-md lg:text-display-lg font-display text-rook mb-6 uppercase">
             Escolha o plano ideal para{' '}
-            <span className="bg-gradient-rook bg-clip-text text-transparent">
+            <span className="text-ocre">
               seu restaurante
             </span>
           </h2>
           
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-rook-dark/70 font-light">
             Comece grátis e evolua conforme seu negócio cresce. 
             Sem contratos, sem surpresas, cancele quando quiser.
           </p>
@@ -98,92 +96,108 @@ const Pricing = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
             <div 
-              key={index}
-              className={`relative bg-white rounded-2xl border-2 ${
-                plan.popular 
-                  ? 'border-rook-brown shadow-rook-xl scale-105' 
-                  : 'border-gray-200 hover:border-rook-brown-200'
-              } p-8 transition-all duration-300 hover:shadow-rook-xl animate-slide-up`}
+              key={plan.name}
+              className={`
+                relative rounded-2xl p-8 transition-all duration-300
+                ${plan.popular 
+                  ? 'bg-gradient-rook shadow-rook-xl scale-105 border-2 border-ocre' 
+                  : 'bg-white shadow-rook hover:shadow-rook-lg border border-rook-light/20'
+                }
+              `}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Badge */}
               {plan.badge && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-gradient-rook text-white px-4 py-1 rounded-full text-sm font-bold shadow-rook">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <span className="inline-block bg-ocre text-white px-4 py-1 rounded-full text-xs font-medium uppercase tracking-wider">
                     {plan.badge}
                   </span>
                 </div>
               )}
               
               {/* Icon */}
-              <div className={`w-14 h-14 bg-${plan.gradient} rounded-xl flex items-center justify-center mb-6`}>
-                <plan.icon className="w-7 h-7 text-white" />
+              <div className={`
+                w-14 h-14 rounded-xl flex items-center justify-center mb-6
+                ${plan.popular ? 'bg-white/20' : 'bg-rook/10'}
+              `}>
+                <plan.icon className={`w-7 h-7 ${plan.popular ? 'text-white' : 'text-rook'}`} />
               </div>
               
               {/* Plan Name */}
-              <h3 className="text-2xl font-bold text-rook-brown mb-2">
+              <h3 className={`
+                text-2xl font-semibold mb-2 uppercase tracking-wide
+                ${plan.popular ? 'text-white' : 'text-rook'}
+              `}>
                 {plan.name}
               </h3>
               
               {/* Description */}
-              <p className="text-gray-600 mb-6 min-h-[3rem]">
+              <p className={`
+                text-sm mb-6 font-light
+                ${plan.popular ? 'text-white/80' : 'text-rook-dark/60'}
+              `}>
                 {plan.description}
               </p>
               
               {/* Price */}
-              <div className="mb-6">
-                <div className="flex items-baseline space-x-2">
-                  <span className="text-5xl font-bold text-rook-brown">
+              <div className="mb-8">
+                <div className="flex items-baseline">
+                  <span className={`
+                    text-5xl font-bold
+                    ${plan.popular ? 'text-white' : 'text-rook'}
+                  `}>
                     {plan.price}
                   </span>
-                  <span className="text-gray-500">
+                  <span className={`
+                    ml-2 font-light
+                    ${plan.popular ? 'text-white/70' : 'text-rook-dark/60'}
+                  `}>
                     {plan.period}
                   </span>
                 </div>
               </div>
               
-              {/* CTA Button */}
-              <Button 
-                variant={plan.popular ? 'primary' : 'outline'}
+              {/* Features */}
+              <ul className="space-y-4 mb-8">
+                {plan.features.map((feature, i) => (
+                  <li key={i} className="flex items-start space-x-3">
+                    <Check className={`
+                      w-5 h-5 flex-shrink-0 mt-0.5
+                      ${plan.popular ? 'text-ocre' : 'text-floresta'}
+                    `} />
+                    <span className={`
+                      text-sm font-light
+                      ${plan.popular ? 'text-white/90' : 'text-rook-dark/70'}
+                    `}>
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              
+              {/* CTA */}
+              <Button
+                variant={plan.popular ? 'secondary' : 'primary'}
                 size="lg"
-                className="w-full mb-8"
                 href={plan.href}
+                className={`
+                  w-full
+                  ${plan.popular 
+                    ? 'bg-white text-rook hover:bg-white/90' 
+                    : 'bg-terracota text-white hover:bg-terracota-dark border-none'
+                  }
+                `}
               >
                 {plan.cta}
               </Button>
-              
-              {/* Features */}
-              <div className="space-y-4">
-                <p className="text-sm font-semibold text-gray-700 mb-4">
-                  O que está incluído:
-                </p>
-                {plan.features.map((feature, i) => (
-                  <div key={i} className="flex items-start space-x-3">
-                    <div className="w-5 h-5 bg-success-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-success-600" />
-                    </div>
-                    <span className="text-gray-700 text-sm">{feature}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           ))}
         </div>
         
         {/* Bottom Note */}
-        <div className="text-center mt-16 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-          <div className="bg-rook-brown-50 border border-rook-brown-200 rounded-xl p-6 max-w-3xl mx-auto">
-            <h4 className="font-bold text-rook-brown mb-2">
-              💡 Tem ERP? O plano Business é perfeito para você!
-            </h4>
-            <p className="text-gray-700">
-              Integração automática com Omie, Colibri, Saipo e Teknisa. 
-              Seus dados sincronizados em tempo real, zero trabalho manual.
-            </p>
-          </div>
-          
-          <p className="text-gray-500 mt-8 text-sm">
-            Todos os planos incluem 14 dias de teste grátis • Sem cartão de crédito • Cancele quando quiser
+        <div className="text-center mt-12">
+          <p className="text-rook-dark/60 font-light">
+            Todos os planos incluem <strong className="text-rook font-medium">14 dias de teste grátis</strong> sem necessidade de cartão de crédito.
           </p>
         </div>
       </Container>

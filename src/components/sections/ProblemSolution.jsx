@@ -1,29 +1,32 @@
-import { AlertTriangle, TrendingUp, Brain, Zap } from 'lucide-react'
+import { AlertTriangle, Zap, TrendingUp, Shield, Brain, Clock } from 'lucide-react'
 import Container from '../ui/Container'
 
 const ProblemSolution = () => {
   return (
-    <section className="py-20 bg-white">
-      <Container>
+    <section className="py-20 bg-neutral-50 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-hexagon-pattern opacity-5"></div>
+      
+      <Container className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Problema */}
           <div className="space-y-6 animate-fade-in">
-            <div className="inline-flex items-center space-x-2 bg-error-50 px-4 py-2 rounded-full">
-              <AlertTriangle className="w-5 h-5 text-error-600" />
-              <span className="text-sm font-semibold text-error-700">
+            <div className="inline-flex items-center space-x-2 bg-terracota/10 px-4 py-2 rounded-full border border-terracota/20">
+              <AlertTriangle className="w-5 h-5 text-terracota" />
+              <span className="text-sm font-light text-terracota-dark uppercase tracking-wider">
                 O Problema
               </span>
             </div>
             
-            <h2 className="text-4xl lg:text-5xl font-bold text-rook-brown leading-tight">
+            <h2 className="text-display-md lg:text-display-lg font-display text-rook leading-tight uppercase">
               CMV alto está{' '}
-              <span className="text-error-600">matando</span>{' '}
+              <span className="text-terracota">matando</span>{' '}
               seu lucro?
             </h2>
             
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl text-rook-dark/70 leading-relaxed font-light">
               Você trabalha duro, vende bem, mas no final do mês o lucro não aparece. 
-              O problema? <strong className="text-rook-brown">Custo de Mercadoria Vendida descontrolado.</strong>
+              O problema? <strong className="text-rook font-medium">Custo de Mercadoria Vendida descontrolado.</strong>
             </p>
             
             {/* Pain Points */}
@@ -35,19 +38,19 @@ const ProblemSolution = () => {
                 'Planilhas manuais são lentas, propensas a erros e desatualizadas'
               ].map((pain, index) => (
                 <div key={index} className="flex items-start space-x-3">
-                  <div className="w-6 h-6 bg-error-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-error-600 font-bold text-sm">✕</span>
+                  <div className="w-6 h-6 bg-terracota/20 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <span className="text-terracota font-bold text-sm">✕</span>
                   </div>
-                  <p className="text-gray-700">{pain}</p>
+                  <p className="text-rook-dark/60 font-light">{pain}</p>
                 </div>
               ))}
             </div>
             
             {/* Stat */}
-            <div className="bg-error-50 border-l-4 border-error-600 p-6 rounded-lg">
-              <p className="text-3xl font-bold text-error-700 mb-2">11,84%</p>
-              <p className="text-gray-700">
-                É quanto restaurantes com CMV acima de 36% <strong>perdem de lucro</strong> em média, 
+            <div className="bg-white border-l-4 border-terracota p-6 rounded-lg shadow-rook">
+              <p className="text-4xl font-bold text-terracota mb-2">11,84%</p>
+              <p className="text-rook-dark/70 font-light">
+                É quanto restaurantes com CMV acima de 36% <strong className="text-rook font-medium">perdem de lucro</strong> em média, 
                 segundo análise de 1.000+ estabelecimentos.
               </p>
             </div>
@@ -55,68 +58,49 @@ const ProblemSolution = () => {
           
           {/* Solução */}
           <div className="space-y-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <div className="inline-flex items-center space-x-2 bg-success-50 px-4 py-2 rounded-full">
-              <Zap className="w-5 h-5 text-success-600" />
-              <span className="text-sm font-semibold text-success-700">
+            <div className="inline-flex items-center space-x-2 bg-floresta/10 px-4 py-2 rounded-full border border-floresta/20">
+              <Zap className="w-5 h-5 text-floresta" />
+              <span className="text-sm font-light text-floresta-dark uppercase tracking-wider">
                 A Solução
               </span>
             </div>
             
-            <h2 className="text-4xl lg:text-5xl font-bold text-rook-brown leading-tight">
+            <h2 className="text-display-md lg:text-display-lg font-display text-rook leading-tight uppercase">
               Rook System:{' '}
-              <span className="bg-gradient-success bg-clip-text text-transparent">
+              <span className="text-ocre">
                 Inteligência
               </span>{' '}
               que gera lucro
             </h2>
             
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-xl text-rook-dark/70 leading-relaxed font-light">
               Controle automático de CMV com inteligência artificial. 
-              O Rook <strong className="text-rook-brown">prevê, alerta e orienta</strong> suas decisões de compra em tempo real.
+              O Rook <strong className="text-rook font-medium">prevê, alerta e orienta</strong> suas decisões de compra em tempo real.
             </p>
             
             {/* Solution Points */}
             <div className="space-y-4 pt-4">
               {[
-                {
-                  icon: Brain,
-                  title: 'IA Preditiva',
-                  description: 'Prevê quanto você pode comprar sem estourar a meta'
-                },
-                {
-                  icon: TrendingUp,
-                  title: 'Alertas Inteligentes',
-                  description: 'Notifica quando o CMV está saindo do controle'
-                },
-                {
-                  icon: Zap,
-                  title: 'Automação Total',
-                  description: 'Integra com seu ERP e calcula tudo automaticamente'
-                },
-                {
-                  icon: AlertTriangle,
-                  title: 'Ações Corretivas',
-                  description: 'Sugere exatamente o que fazer para reequilibrar'
-                }
+                { icon: Brain, text: 'IA prevê variações de custo antes de acontecerem' },
+                { icon: TrendingUp, text: 'Alertas inteligentes sugerem ações para reduzir CMV' },
+                { icon: Shield, text: 'Controle total em tempo real, sem planilhas' },
+                { icon: Clock, text: 'Economize 15h/semana em gestão de compras' }
               ].map((solution, index) => (
-                <div key={index} className="flex items-start space-x-4 bg-white border border-success-200 rounded-xl p-4 hover:shadow-rook transition-shadow">
-                  <div className="w-12 h-12 bg-gradient-success rounded-lg flex items-center justify-center flex-shrink-0">
-                    <solution.icon className="w-6 h-6 text-white" />
+                <div key={index} className="flex items-start space-x-3">
+                  <div className="w-10 h-10 bg-floresta/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <solution.icon className="w-5 h-5 text-floresta" />
                   </div>
-                  <div>
-                    <h4 className="font-bold text-rook-brown mb-1">{solution.title}</h4>
-                    <p className="text-gray-600 text-sm">{solution.description}</p>
-                  </div>
+                  <p className="text-rook-dark/70 font-light pt-2">{solution.text}</p>
                 </div>
               ))}
             </div>
             
-            {/* Result Stat */}
-            <div className="bg-gradient-success text-white p-6 rounded-xl shadow-rook-lg">
-              <p className="text-3xl font-bold mb-2">R$ 12.500</p>
-              <p className="text-success-50">
-                É quanto nossos clientes <strong>economizam em média por mês</strong> 
-                com o controle inteligente de CMV do Rook System.
+            {/* Success Stat */}
+            <div className="bg-gradient-to-br from-rook-light to-rook p-6 rounded-lg shadow-rook-lg">
+              <p className="text-4xl font-bold text-white mb-2">R$ 47.500</p>
+              <p className="text-white/90 font-light">
+                É quanto nossos clientes <strong className="font-medium">economizam em média</strong> nos primeiros 3 meses 
+                com o Rook System.
               </p>
             </div>
           </div>

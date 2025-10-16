@@ -7,47 +7,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Cores de Marca - Rook Brown (Marrom Principal)
-        'rook-brown': {
-          DEFAULT: '#754A31', // Compatibilidade com uso sem variação
-          50: '#FAF6F4',
-          100: '#F5EDE8',
-          200: '#E8D5C6',
-          300: '#DBBDA4',
-          400: '#C18D60',
-          500: '#754A31', // Principal
-          600: '#5C3B27',
-          700: '#4A2F1F',
-          800: '#382317',
-          900: '#26170F',
+        // Cores Primárias Rook (Manual de Identidade Visual)
+        rook: {
+          DEFAULT: '#754A31', // Marrom Rook (cor principal)
+          light: '#B07C4A',   // Marrom Pingado
+          dark: '#351F07',    // Marrom Café
         },
-        // Cores de Marca - Rook Verde (Verde Institucional)
-        'rook-verde': {
-          DEFAULT: '#44604A', // Compatibilidade com uso sem variação
-          50: '#F2F5F3',
-          100: '#E5EBE7',
-          200: '#BFCDC3',
-          300: '#99AF9F',
-          400: '#6E8A77',
-          500: '#44604A', // Principal
-          600: '#364D3B',
-          700: '#2B3D2F',
-          800: '#202E23',
-          900: '#151E17',
+        // Cores Auxiliares
+        terracota: {
+          DEFAULT: '#E54C00',
+          light: '#FF6B1A',
+          dark: '#CC4300',
         },
-        // Cores de Marca - Rook Pingado (Tom Secundário)
-        'rook-pingado': {
-          DEFAULT: '#B07C4A', // Compatibilidade com uso sem variação
-          50: '#FBF7F3',
-          100: '#F7EFE7',
-          200: '#EBD7C3',
-          300: '#DFBF9F',
-          400: '#C78F57',
-          500: '#B07C4A', // Principal
-          600: '#8D633B',
-          700: '#6A4A2C',
-          800: '#47321E',
-          900: '#24190F',
+        ocre: {
+          DEFAULT: '#E79F4A',
+          light: '#FFB366',
+          dark: '#D18A35',
+        },
+        floresta: {
+          DEFAULT: '#46604A',
+          light: '#5A7A5E',
+          dark: '#354A38',
         },
         // Cores Semânticas - Success (Verde Sucesso)
         'success': {
@@ -116,35 +96,26 @@ export default {
         },
       },
       fontFamily: {
-        'sans': ['Trebuchet MS', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        'display': ['Trebuchet MS', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Work Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'sans-serif'],
+        display: ['Work Sans', 'sans-serif'],
       },
       fontSize: {
-        'xs': ['0.75rem', { lineHeight: '1rem' }],      // 12px
-        'sm': ['0.875rem', { lineHeight: '1.25rem' }],  // 14px
-        'base': ['1rem', { lineHeight: '1.5rem' }],     // 16px
-        'lg': ['1.125rem', { lineHeight: '1.75rem' }],  // 18px
-        'xl': ['1.25rem', { lineHeight: '1.75rem' }],   // 20px
-        '2xl': ['1.5rem', { lineHeight: '2rem' }],      // 24px
-        '3xl': ['1.875rem', { lineHeight: '2.25rem' }], // 30px
-        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],   // 36px
-        '5xl': ['3rem', { lineHeight: '1' }],           // 48px
-        '6xl': ['3.75rem', { lineHeight: '1' }],        // 60px - Para Hero
-        '7xl': ['4.5rem', { lineHeight: '1' }],         // 72px - Para Hero
+        'display-xl': ['4.5rem', { lineHeight: '1.1', letterSpacing: '0.05em', fontWeight: '100' }],
+        'display-lg': ['3.75rem', { lineHeight: '1.1', letterSpacing: '0.05em', fontWeight: '100' }],
+        'display-md': ['3rem', { lineHeight: '1.2', letterSpacing: '0.04em', fontWeight: '100' }],
+        'display-sm': ['2.25rem', { lineHeight: '1.2', letterSpacing: '0.04em', fontWeight: '300' }],
       },
       backgroundImage: {
-        'gradient-rook': 'linear-gradient(135deg, #754A31, #B07C4A)',
-        'gradient-rook-dark': 'linear-gradient(135deg, #5C3B27, #754A31)',
-        'gradient-success': 'linear-gradient(135deg, #16A34A, #22C55E)',
-        'gradient-warning': 'linear-gradient(135deg, #F59E0B, #FBBF24)',
-        'gradient-error': 'linear-gradient(135deg, #DC2626, #EF4444)',
-        'gradient-info': 'linear-gradient(135deg, #2563EB, #3B82F6)',
-        'gradient-hero': 'linear-gradient(135deg, #754A31 0%, #B07C4A 100%)',
+        'gradient-rook': 'linear-gradient(135deg, #B07C4A 0%, #351F07 100%)',
+        'gradient-rook-radial': 'radial-gradient(circle at top right, #B07C4A 0%, #754A31 50%, #351F07 100%)',
+        'hexagon-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%23B07C4A' stroke-width='0.5' opacity='0.15'/%3E%3C/svg%3E\")",
       },
       boxShadow: {
+        'rook-sm': '0 1px 2px 0 rgba(117, 74, 49, 0.05)',
         'rook': '0 4px 6px -1px rgba(117, 74, 49, 0.1), 0 2px 4px -1px rgba(117, 74, 49, 0.06)',
-        'rook-lg': '0 10px 15px -3px rgba(117, 74, 49, 0.1), 0 4px 6px -2px rgba(117, 74, 49, 0.05)',
-        'rook-xl': '0 20px 25px -5px rgba(117, 74, 49, 0.1), 0 10px 10px -5px rgba(117, 74, 49, 0.04)',
+        'rook-md': '0 10px 15px -3px rgba(117, 74, 49, 0.1), 0 4px 6px -2px rgba(117, 74, 49, 0.05)',
+        'rook-lg': '0 20px 25px -5px rgba(117, 74, 49, 0.1), 0 10px 10px -5px rgba(117, 74, 49, 0.04)',
+        'rook-xl': '0 25px 50px -12px rgba(117, 74, 49, 0.25)',
       },
       maxWidth: {
         'container': '1280px',
