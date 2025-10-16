@@ -4,6 +4,18 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    // Garantir que cores Rook sejam sempre incluídas
+    { pattern: /^(bg|text|border|ring|from|to|via)-(rook|terracota|ocre|floresta)(-.*)?$/ },
+    'bg-gradient-rook',
+    'bg-gradient-rook-radial',
+    'bg-hexagon-pattern',
+    'shadow-rook',
+    'shadow-rook-sm',
+    'shadow-rook-md',
+    'shadow-rook-lg',
+    'shadow-rook-xl',
+  ],
   theme: {
     extend: {
       colors: {
