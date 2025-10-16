@@ -11,10 +11,10 @@ const Button = forwardRef(({
   const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
   
   const variants = {
-    primary: 'bg-gradient-rook text-white hover:shadow-rook-lg focus:ring-rook-brown',
-    secondary: 'bg-white text-rook-brown border-2 border-rook-brown hover:bg-rook-brown-50 focus:ring-rook-brown',
-    outline: 'bg-transparent text-rook-brown border-2 border-rook-brown hover:bg-rook-brown hover:text-white focus:ring-rook-brown',
-    ghost: 'bg-transparent text-rook-brown hover:bg-rook-brown-50 focus:ring-rook-brown',
+    primary: 'bg-gradient-rook text-white hover:shadow-rook-lg focus:ring-rook',
+    secondary: 'bg-white text-rook border-2 border-rook hover:bg-rook/5 focus:ring-rook',
+    outline: 'bg-transparent text-rook border-2 border-rook hover:bg-rook hover:text-white focus:ring-rook',
+    ghost: 'bg-transparent text-rook hover:bg-rook/5 focus:ring-rook',
   }
   
   const sizes = {
